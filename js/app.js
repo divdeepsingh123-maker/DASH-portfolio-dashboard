@@ -27,4 +27,14 @@ const portfolio = [
 
 console.log(portfolio);
 
+portfolio.forEach((holding) => {
+    const currentValue = holding.shares * holding.currentPrice;
+
+    console.log(
+        holding.symbol,
+        "Current Value:",
+        currentValue
+    );
+});
+
 console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
