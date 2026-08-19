@@ -37,4 +37,12 @@ portfolio.forEach((holding) => {
     );
 });
 
+let totalPortfolioValue = 0;
+
+portfolio.forEach((holding) => {
+    totalPortfolioValue += holding.shares * holding.currentPrice;
+});
+
+console.log("Total Portfolio Value:", totalPortfolioValue);
+
 console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
