@@ -45,4 +45,12 @@ portfolio.forEach((holding) => {
 
 console.log("Total Portfolio Value:", totalPortfolioValue);
 
+const portfolioValueElement =
+    document.getElementById("portfolio-value");
+
+if (portfolioValueElement) {
+    portfolioValueElement.textContent =
+        "$" + totalPortfolioValue.toLocaleString();
+}
+
 console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
