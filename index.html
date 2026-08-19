@@ -17,93 +17,191 @@
 <body>
 
     <header class="topbar">
-        <div>
+
+        <div class="brand">
             <h1>DASH</h1>
             <p>Portfolio Intelligence Dashboard</p>
         </div>
 
-        <button class="menu-button">☰</button>
+        <div class="header-actions">
+            <span class="status">● Market Dashboard</span>
+            <button class="menu-button">☰</button>
+        </div>
+
     </header>
 
     <main class="dashboard">
 
+        <section class="welcome-section">
+
+            <div>
+                <p class="eyebrow">DASH COMMAND CENTER</p>
+
+                <h2>Your market and portfolio overview</h2>
+
+                <p class="section-description">
+                    Monitor markets, portfolio performance, watchlist activity,
+                    and financial intelligence from one dashboard.
+                </p>
+            </div>
+
+            <div class="updated-box">
+                <span>Last Updated</span>
+                <strong id="last-updated">Loading...</strong>
+            </div>
+
+        </section>
+
         <section>
-            <h2>Market Overview</h2>
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">MARKETS</p>
+                    <h2>Market Overview</h2>
+                </div>
+            </div>
 
             <div class="card-grid">
 
                 <article class="card">
                     <span>S&P 500</span>
-                    <strong>—</strong>
-                    <small>Market data coming soon</small>
+                    <strong>6,425.40</strong>
+                    <small class="positive">▲ +0.42%</small>
                 </article>
 
                 <article class="card">
                     <span>NASDAQ</span>
-                    <strong>—</strong>
-                    <small>Market data coming soon</small>
+                    <strong>21,690.20</strong>
+                    <small class="positive">▲ +0.71%</small>
                 </article>
 
                 <article class="card">
                     <span>TSX</span>
-                    <strong>—</strong>
-                    <small>Market data coming soon</small>
+                    <strong>27,815.60</strong>
+                    <small class="negative">▼ -0.18%</small>
                 </article>
 
                 <article class="card">
                     <span>Bitcoin</span>
-                    <strong>—</strong>
-                    <small>Market data coming soon</small>
+                    <strong>$115,420</strong>
+                    <small class="positive">▲ +1.24%</small>
                 </article>
 
             </div>
+
         </section>
 
         <section>
-            <h2>My Portfolio</h2>
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">PORTFOLIO</p>
+                    <h2>My Portfolio</h2>
+                </div>
+
+            </div>
 
             <div class="card-grid">
 
                 <article class="card">
                     <span>Portfolio Value</span>
-                    <strong>$—</strong>
+                    <strong>$25,420</strong>
+                    <small>Sample data</small>
                 </article>
 
                 <article class="card">
                     <span>Today's P/L</span>
-                    <strong>$—</strong>
+                    <strong class="positive">+$184</strong>
+                    <small class="positive">▲ +0.73%</small>
                 </article>
 
                 <article class="card">
                     <span>Total P/L</span>
-                    <strong>$—</strong>
+                    <strong class="positive">+$2,860</strong>
+                    <small class="positive">▲ +12.68%</small>
                 </article>
 
                 <article class="card">
                     <span>Dividend Income</span>
-                    <strong>$—</strong>
+                    <strong>$1,240</strong>
+                    <small>Annual estimate</small>
                 </article>
 
             </div>
+
         </section>
 
         <section>
-            <h2>Watchlist</h2>
 
-            <div class="panel">
-                <p>Your stock watchlist will appear here.</p>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">TRACKING</p>
+                    <h2>Watchlist</h2>
+                </div>
             </div>
+
+            <div class="panel table-panel">
+
+                <div class="watchlist-row watchlist-header">
+                    <span>Symbol</span>
+                    <span>Price</span>
+                    <span>Change</span>
+                </div>
+
+                <div class="watchlist-row">
+                    <strong>AAPL</strong>
+                    <span>$231.45</span>
+                    <span class="positive">+0.84%</span>
+                </div>
+
+                <div class="watchlist-row">
+                    <strong>GOOG</strong>
+                    <span>$204.21</span>
+                    <span class="positive">+1.12%</span>
+                </div>
+
+                <div class="watchlist-row">
+                    <strong>CNQ</strong>
+                    <span>$46.32</span>
+                    <span class="negative">-0.35%</span>
+                </div>
+
+                <div class="watchlist-row">
+                    <strong>BTC</strong>
+                    <span>$115,420</span>
+                    <span class="positive">+1.24%</span>
+                </div>
+
+            </div>
+
         </section>
 
         <section>
-            <h2>Market Intelligence</h2>
 
-            <div class="panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">INTELLIGENCE</p>
+                    <h2>Market Intelligence</h2>
+                </div>
+            </div>
+
+            <div class="panel intelligence-panel">
+
+                <h3>Market Brief</h3>
+
                 <p>
-                    Financial news, market analysis and AI-generated
-                    summaries will eventually appear here.
+                    DASH intelligence will eventually summarize market news,
+                    economic events, portfolio risks, and major developments
+                    affecting your watchlist.
                 </p>
+
+                <p class="muted">
+                    Live news and AI analysis will be connected in a later version.
+                </p>
+
             </div>
+
         </section>
 
     </main>
