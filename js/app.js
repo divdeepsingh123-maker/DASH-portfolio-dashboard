@@ -72,4 +72,42 @@ if (portfolioValueElement) {
         "$" + totalPortfolioValue.toLocaleString();
 }
 
+const totalProfitLossElement =
+    document.getElementById("total-profit-loss");
+
+const totalProfitLossPercentElement =
+    document.getElementById(
+        "total-profit-loss-percent"
+    );
+
+if (totalProfitLossElement) {
+    const profitLossSign =
+        totalProfitLoss >= 0 ? "+" : "-";
+
+    totalProfitLossElement.textContent =
+        profitLossSign +
+        "$" +
+        Math.abs(totalProfitLoss).toLocaleString();
+
+    totalProfitLossElement.className =
+        totalProfitLoss >= 0
+            ? "positive"
+            : "negative";
+}
+
+if (totalProfitLossPercentElement) {
+    const percentSign =
+        totalProfitLossPercent >= 0 ? "+" : "";
+
+    totalProfitLossPercentElement.textContent =
+        percentSign +
+        totalProfitLossPercent.toFixed(2) +
+        "%";
+
+    totalProfitLossPercentElement.className =
+        totalProfitLossPercent >= 0
+            ? "positive"
+            : "negative";
+}
+
 console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
