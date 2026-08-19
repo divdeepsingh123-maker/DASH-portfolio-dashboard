@@ -43,6 +43,25 @@ portfolio.forEach((holding) => {
     totalPortfolioValue += holding.shares * holding.currentPrice;
 });
 
+let totalPortfolioCost = 0;
+
+portfolio.forEach((holding) => {
+    totalPortfolioCost += holding.shares * holding.averageCost;
+});
+
+const totalProfitLoss =
+    totalPortfolioValue - totalPortfolioCost;
+
+const totalProfitLossPercent =
+    (totalProfitLoss / totalPortfolioCost) * 100;
+
+console.log("Total Portfolio Cost:", totalPortfolioCost);
+console.log("Total Profit/Loss:", totalProfitLoss);
+console.log(
+    "Total Profit/Loss Percent:",
+    totalProfitLossPercent
+);
+
 console.log("Total Portfolio Value:", totalPortfolioValue);
 
 const portfolioValueElement =
