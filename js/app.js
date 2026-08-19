@@ -4,4 +4,27 @@ const now = new Date();
 
 lastUpdated.textContent = now.toLocaleString();
 
-console.log("DASH Portfolio Dashboard v0.2 loaded successfully.");
+const portfolio = [
+    {
+        symbol: "AAPL",
+        shares: 5,
+        averageCost: 200,
+        currentPrice: 230
+    },
+    {
+        symbol: "GOOG",
+        shares: 4,
+        averageCost: 180,
+        currentPrice: 205
+    },
+    {
+        symbol: "CNQ",
+        shares: 10,
+        averageCost: 42,
+        currentPrice: 46
+    }
+];
+
+console.log(portfolio);
+
+console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
