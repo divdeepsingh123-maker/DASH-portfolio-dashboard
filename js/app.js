@@ -56,6 +56,7 @@ const totalProfitLossPercent =
     totalPortfolioCost > 0
         ? (totalProfitLoss / totalPortfolioCost) * 100
         : 0;
+        : 0;
     : 0;
 
 console.log("Total Portfolio Cost:", totalPortfolioCost);
@@ -73,6 +74,13 @@ const portfolioValueElement =
 if (portfolioValueElement) {
     portfolioValueElement.textContent =
         "$" + totalPortfolioValue.toLocaleString();
+}
+const totalPortfolioCostElement =
+    document.getElementById("total-portfolio-cost");
+
+if (totalPortfolioCostElement) {
+    totalPortfolioCostElement.textContent =
+        "$" + totalPortfolioCost.toLocaleString();
 }
 const totalPortfolioCostElement =
     document.getElementById("total-portfolio-cost");
@@ -185,6 +193,63 @@ if (holdingsContainer) {
         holdingsContainer.appendChild(holdingCard);
 
     });
+const holdingsContainer =
+    document.getElementById("holdings-container");
 
+if (holdingsContainer) {
+
+    portfolio.forEach((holding) => {
+
+        const holdingCost =
+            holding.shares * holding.averageCost;
+
+        const holdingMarketValue =
+            holding.shares * holding.currentPrice;
+
+        const holdingProfitLoss =
+            holdingMarketValue - holdingCost;
+
+        const holdingProfitLossPercent =
+            holdingCost > 0
+                ? (holdingProfitLoss / holdingCost) * 100
+                : 0;
+
+        const performanceClass =
+            holdingProfitLoss >= 0 ? "positive" : "negative";
+
+        const sign =
+            holdingProfitLoss >= 0 ? "+" : "-";
+
+        const holdingCard =
+            document.createElement("article");
+
+        holdingCard.className = "card holding-card";
+
+        holdingCard.innerHTML = `
+            <span>${holding.symbol}</span>
+
+            <strong>
+                $${holdingMarketValue.toLocaleString()}
+            </strong>
+
+            <small>${holding.shares} shares</small>
+
+            <small>
+                Avg Cost: $${holding.averageCost}
+            </small>
+
+            <small>
+                Current Price: $${holding.currentPrice}
+            </small>
+
+            <small class="${performanceClass}">
+                ${sign}$${Math.abs(holdingProfitLoss).toLocaleString()}
+                (${holdingProfitLossPercent >= 0 ? "+" : ""}${holdingProfitLossPercent.toFixed(2)}%)
+            </small>
+        `;
+
+        holdingsContainer.appendChild(holdingCard);
+    });
+}
 }
 console.log("DASH Portfolio Dashboard v0.4 loaded successfully.");
