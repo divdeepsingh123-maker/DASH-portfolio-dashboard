@@ -43,6 +43,27 @@ portfolio.forEach((holding) => {
     totalPortfolioValue += holding.shares * holding.currentPrice;
 });
 
+let totalPortfolioCost = 0;
+
+portfolio.forEach((holding) => {
+    totalPortfolioCost += holding.shares * holding.averageCost;
+});
+
+const totalProfitLoss =
+    totalPortfolioValue - totalPortfolioCost;
+
+const totalProfitLossPercent =
+    totalPortfolioCost > 0
+        ? (totalProfitLoss / totalPortfolioCost) * 100
+        : 0;
+
+console.log("Total Portfolio Cost:", totalPortfolioCost);
+console.log("Total Profit/Loss:", totalProfitLoss);
+console.log(
+    "Total Profit/Loss Percent:",
+    totalProfitLossPercent
+);
+
 console.log("Total Portfolio Value:", totalPortfolioValue);
 
 const portfolioValueElement =
@@ -52,5 +73,114 @@ if (portfolioValueElement) {
     portfolioValueElement.textContent =
         "$" + totalPortfolioValue.toLocaleString();
 }
+const totalPortfolioCostElement =
+    document.getElementById("total-portfolio-cost");
 
-console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
+if (totalPortfolioCostElement) {
+    totalPortfolioCostElement.textContent =
+        "$" + totalPortfolioCost.toLocaleString();
+}
+const totalProfitLossElement =
+    document.getElementById("total-profit-loss");
+
+const totalProfitLossPercentElement =
+    document.getElementById("total-profit-loss-percent");
+
+if (totalProfitLossElement) {
+    const profitLossSign =
+        totalProfitLoss >= 0 ? "+" : "-";
+
+    totalProfitLossElement.textContent =
+        profitLossSign +
+        "$" +
+        Math.abs(totalProfitLoss).toLocaleString();
+
+    totalProfitLossElement.className =
+        totalProfitLoss >= 0
+            ? "positive"
+            : "negative";
+}
+
+if (totalProfitLossPercentElement) {
+    const percentSign =
+        totalProfitLossPercent >= 0 ? "+" : "";
+
+    totalProfitLossPercentElement.textContent =
+        percentSign +
+        totalProfitLossPercent.toFixed(2) +
+        "%";
+
+    totalProfitLossPercentElement.className =
+        totalProfitLossPercent >= 0
+            ? "positive"
+            : "negative";
+}
+const holdingsContainer =
+    document.getElementById("holdings-container");
+
+if (holdingsContainer) {
+
+    portfolio.forEach((holding) => {
+
+        const holdingCost =
+            holding.shares * holding.averageCost;
+
+        const holdingMarketValue =
+            holding.shares * holding.currentPrice;
+
+        const holdingProfitLoss =
+            holdingMarketValue - holdingCost;
+
+        const holdingProfitLossPercent =
+            holdingCost > 0
+                ? (holdingProfitLoss / holdingCost) * 100
+                : 0;
+
+        const profitLossSign =
+            holdingProfitLoss >= 0 ? "+" : "-";
+
+        const percentSign =
+            holdingProfitLossPercent >= 0 ? "+" : "";
+
+        const performanceClass =
+            holdingProfitLoss >= 0
+                ? "positive"
+                : "negative";
+
+        const holdingCard =
+            document.createElement("article");
+
+        holdingCard.className =
+            "card holding-card";
+
+        holdingCard.innerHTML = `
+            <span>${holding.symbol}</span>
+
+            <strong>
+                $${holdingMarketValue.toLocaleString()}
+            </strong>
+
+            <small>
+                ${holding.shares} shares
+            </small>
+
+            <small>
+                Avg Cost: $${holding.averageCost.toLocaleString()}
+            </small>
+
+            <small>
+                Current Price: $${holding.currentPrice.toLocaleString()}
+            </small>
+
+            <small class="${performanceClass}">
+                ${profitLossSign}$${Math.abs(holdingProfitLoss).toLocaleString()}
+                (${percentSign}${holdingProfitLossPercent.toFixed(2)}%)
+            </small>
+        `;
+
+     holdingsContainer.appendChild(holdingCard);
+
+    });
+}
+
+console.log("DASH Portfolio Dashboard v0.4 loaded successfully.");
