@@ -80,8 +80,8 @@ if (totalPortfolioCostElement) {
     totalPortfolioCostElement.textContent =
         "$" + totalPortfolioCost.toLocaleString();
 }
-const totalPortfolioCostElement =
-    document.getElementById("total-portfolio-loss");
+const totalProfitLossElement =
+    document.getElementById("total-profit-loss");
 
 const totalProfitLossPercentElement =
     document.getElementById("total-profit-loss-percent");
