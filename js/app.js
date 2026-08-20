@@ -56,8 +56,6 @@ const totalProfitLossPercent =
     totalPortfolioCost > 0
         ? (totalProfitLoss / totalPortfolioCost) * 100
         : 0;
-        : 0;
-    : 0;
 
 console.log("Total Portfolio Cost:", totalPortfolioCost);
 console.log("Total Profit/Loss:", totalProfitLoss);
@@ -84,14 +82,6 @@ if (totalPortfolioCostElement) {
 }
 const totalPortfolioCostElement =
     document.getElementById("total-portfolio-cost");
-
-if (totalPortfolioCostElement) {
-    totalPortfolioCostElement.textContent =
-        "$" + totalPortfolioCost.toLocaleString();
-}
-
-const totalProfitLossElement =
-    document.getElementById("total-profit-loss");
 
 const totalProfitLossPercentElement =
     document.getElementById(
@@ -190,8 +180,9 @@ if (holdingsContainer) {
             </small>
         `;
 
-        holdingsContainer.appendChild(holdingCard);
+     holdingsContainer.appendChild(holdingCard);
 
     });
+}
 
 console.log("DASH Portfolio Dashboard v0.4 loaded successfully.");
