@@ -53,7 +53,9 @@ const totalProfitLoss =
     totalPortfolioValue - totalPortfolioCost;
 
 const totalProfitLossPercent =
-    (totalProfitLoss / totalPortfolioCost) * 100;
+  totalPortfolioCost > 0
+    ? (totalProfitLoss / totalPortfolioCost) * 100
+    : 0;
 
 console.log("Total Portfolio Cost:", totalPortfolioCost);
 console.log("Total Profit/Loss:", totalProfitLoss);
@@ -110,4 +112,4 @@ if (totalProfitLossPercentElement) {
             : "negative";
 }
 
-console.log("DASH Portfolio Dashboard v0.3 loaded successfully.");
+console.log("DASH Portfolio Dashboard v0.4 loaded successfully.");
