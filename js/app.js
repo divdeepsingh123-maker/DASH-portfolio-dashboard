@@ -81,12 +81,10 @@ if (totalPortfolioCostElement) {
         "$" + totalPortfolioCost.toLocaleString();
 }
 const totalPortfolioCostElement =
-    document.getElementById("total-portfolio-cost");
+    document.getElementById("total-portfolio-loss");
 
 const totalProfitLossPercentElement =
-    document.getElementById(
-        "total-profit-loss-percent"
-    );
+    document.getElementById("total-profit-loss-percent");
 
 if (totalProfitLossElement) {
     const profitLossSign =
