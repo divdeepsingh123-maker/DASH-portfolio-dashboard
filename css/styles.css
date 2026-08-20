@@ -249,3 +249,266 @@ section {
         font-size: 14px;
     }
 }
+/* =========================================
+   V0.4 - PORTFOLIO SUMMARY CARDS
+========================================= */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+}
+
+.card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.02)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 22px;
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.card > span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.card > strong {
+    margin-top: 4px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+/* Highlight the primary portfolio metric */
+
+.card:first-child {
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.card:first-child .value {
+    font-size: 2rem;
+}
+/* =========================================
+   V0.4 - PORTFOLIO HOLDINGS SECTION
+========================================= */
+
+.holdings-section {
+    margin-top: 10px;
+}
+
+.holdings-section h2 {
+    margin-bottom: 18px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.holdings-grid {
+    display: grid;
+    gap: 14px;
+}
+.holding-card {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 18px 20px;
+
+    display: grid;
+    grid-template-columns:
+        minmax(180px, 1.4fr)
+        repeat(4, minmax(100px, 1fr));
+
+    align-items: center;
+    gap: 18px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.holding-card:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.13);
+    transform: translateY(-2px);
+}
+/* Holding ticker hierarchy */
+
+.holding-symbol,
+.ticker {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.holding-card > span:first-child {
+    color: #f8fafc;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.holding-card > strong {
+    margin: 6px 0 8px;
+    font-size: 1.75rem;
+    font-weight: 750;
+}
+    margin-top: 4px;
+    font-size: 0.82rem;
+    opacity: 0.55;
+}
+.holding-card > small {
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+.holding-card > small:last-child {
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-weight: 700;
+}
+.holding-card > small.positive,
+.holding-card > small.negative {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border-top: none;
+}
+
+.holding-card > small.positive {
+    background: rgba(34, 197, 94, 0.10);
+    border: 1px solid rgba(34, 197, 94, 0.20);
+}
+
+.holding-card > small.negative {
+    background: rgba(239, 68, 68, 0.10);
+    border: 1px solid rgba(239, 68, 68, 0.20);
+}
+/* =========================================
+   V0.4 - GAIN / LOSS BADGES
+========================================= */
+
+.gain-badge,
+.loss-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.gain-badge {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.10);
+    border: 1px solid rgba(74, 222, 128, 0.18);
+}
+
+.loss-badge {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.10);
+    border: 1px solid rgba(248, 113, 113, 0.18);
+}
+.positive,
+.gain {
+    color: #4ade80;
+}
+
+.negative,
+.loss {
+    color: #f87171;
+}
+/* =========================================
+   V0.4 - DASHBOARD SPACING
+========================================= */
+
+section {
+    margin-bottom: 32px;
+}
+/* =========================================
+   V0.4 - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #holdings-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.holding-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96, 165, 250, 0.30);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.20);
+}
+}
+/* =========================================
+   V0.4 - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .card-grid,
+    #holdings-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .card > strong {
+        font-size: 1.55rem;
+    }
+
+    .holding-card {
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .holding-card > strong {
+        font-size: 1.6rem;
+    }
+}
